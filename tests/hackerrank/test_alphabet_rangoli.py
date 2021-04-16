@@ -1,12 +1,16 @@
 import textwrap
 import unittest
 
-from hackerrank.alphabet_rangoli import rangoli
+from hackerrank import alphabet_rangoli
 
 
-class TestAlphabetRangoli(unittest.TestCase):
+class _TestBase(unittest.TestCase):
+    def __init__(self, fn, *args, **kwargs):
+        super(_TestBase, self).__init__(*args, *kwargs)
+        self.rangoli_fn = fn
+
     def test_size3(self):
-        actual = rangoli(3)
+        actual = self.rangoli_fn.__call__(3)
         expected = textwrap.dedent("""\
             ----c----
             --c-b-c--
@@ -18,7 +22,7 @@ class TestAlphabetRangoli(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_size5(self):
-        actual = rangoli(5)
+        actual = self.rangoli_fn.__call__(5)
         expected = textwrap.dedent("""\
             --------e--------
             ------e-d-e------
@@ -32,6 +36,16 @@ class TestAlphabetRangoli(unittest.TestCase):
             """.rstrip())
 
         self.assertEqual(actual, expected)
+
+
+class TestAlphabetRangoli(_TestBase):
+    def __init__(self, *args, **kwargs):
+        super(TestAlphabetRangoli, self).__init__(alphabet_rangoli.rangoli, *args, **kwargs)
+
+
+class TestAlphabetRangoli2(_TestBase):
+    def __init__(self, *args, **kwargs):
+        super(TestAlphabetRangoli2, self).__init__(alphabet_rangoli.rangoli2, *args, **kwargs)
 
 
 if __name__ == '__main__':

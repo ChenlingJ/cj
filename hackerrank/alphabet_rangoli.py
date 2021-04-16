@@ -81,6 +81,10 @@ e-d-c-b-a-b-c-d-e
 """
 
 
+def print_rangoli(size):
+    print(rangoli(size))
+
+
 def rangoli(size):
     m = 4 * size - 3
     alp = ''
@@ -115,6 +119,26 @@ def rangoli(size):
     return '\n'.join(lines)
 
 
+def rangoli2(size):
+    grid_size = size*2 - 1
+    grid = [list('-' * grid_size) for _ in range(grid_size)]
+
+    for r in range(-(size-1), size):
+        for c in range(-(size-1), size):
+            # -2, 0 => c+2
+            # -1, -1 => c+2
+            # -1, 0 => c+1
+            # -1, 1 => c+2
+            # 0, -2 => c+2
+            # 0, -1 => c+1
+            # 0, 0 => c+0
+            offset = abs(r) + abs(c)
+            if offset < size:
+                grid[r + size-1][c + size-1] = chr(ord('a') + offset)
+
+    return '\n'.join('-'.join(row) for row in grid)
+
+
 def main():
     n = int(input())
-    print(rangoli(n))
+    print_rangoli(n)
