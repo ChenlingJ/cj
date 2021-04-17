@@ -125,14 +125,14 @@ def rangoli2(size):
 
     for r in range(-(size-1), size):
         for c in range(-(size-1), size):
-            # -2, 0 => c+2
+            # -2,  0 => c+2
             # -1, -1 => c+2
-            # -1, 0 => c+1
-            # -1, 1 => c+2
-            # 0, -2 => c+2
-            # 0, -1 => c+1
-            # 0, 0 => c+0
-            offset = abs(r) + abs(c)
+            # -1,  0 => c+1
+            # -1,  1 => c+2
+            #  0, -2 => c+2
+            #  0, -1 => c+1
+            #  0,  0 => c+0
+            offset = abs(r) + abs(c)  # Manhattan distance from central 'a'.
             if offset < size:
                 grid[r + size-1][c + size-1] = chr(ord('a') + offset)
 
