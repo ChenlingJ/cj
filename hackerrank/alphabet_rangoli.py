@@ -45,7 +45,8 @@ j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
 --------------j-i-h-i-j--------------
 ----------------j-i-j----------------
 ------------------j------------------
-The center of the rangoli has the first alphabet letter a, and the boundary has the  alphabet letter (in alphabetical order).
+The center of the rangoli has the first alphabet letter a, and the boundary has the  alphabet letter
+(in alphabetical order).
 
 Function Description
 
@@ -79,6 +80,7 @@ e-d-c-b-a-b-c-d-e
 ------e-d-e------
 --------e--------
 """
+import itertools
 
 
 def print_rangoli(size):
@@ -86,35 +88,22 @@ def print_rangoli(size):
 
 
 def rangoli(size):
-    m = 4 * size - 3
-    alp = ''
-    alp1 = ''
-    lines = []
-    for i in range(1, size + 1):
-        for j in range(0, i):
-            alp += chr(96 + size - j) + '-'
-        for k in range(0, i - 1):
-            alp1 += chr(96 + size - k)
-            if k != i - 2:
-                alp1 += '-'
-        result = alp + ''.join(reversed(alp1))
-        # print(result.center(m, '-'))
-        lines.append(result.center(m, '-'))
-        alp = ''
-        alp1 = ''
+    if size == 1:
+        return 'a'
 
-    for i in range(size - 1, 0, -1):
-        for j in range(0, i):
-            alp += chr(96 + size - j) + '-'
-        for k in range(0, i - 1):
-            alp1 += chr(96 + size - k)
-            if k != i - 2:
-                alp1 += '-'
-        result = alp + ''.join(reversed(alp1))
-        # print(result.center(m, '-'))
-        lines.append(result.center(m, '-'))
-        alp = ''
-        alp1 = ''
+    m = 4 * size - 3
+    lines = []
+    code = ord('a') - 1
+
+    for i in itertools.chain(range(size), reversed(range(size - 1))):
+        line = ''
+        for j in range(i + 1):
+            line += chr(code + size - j) + '-'
+        for j in reversed(range(i)):
+            line += chr(code + size - j)
+            if j > 0:
+                line += '-'
+        lines.append(line.center(m, '-'))
 
     return '\n'.join(lines)
 

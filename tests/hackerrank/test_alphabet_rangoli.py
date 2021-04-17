@@ -9,8 +9,24 @@ class _TestBase(unittest.TestCase):
         super(_TestBase, self).__init__(*args, *kwargs)
         self.rangoli_fn = fn
 
+    def test_size1(self):
+        actual = self.rangoli_fn(1)
+        expected = "a"
+
+        self.assertEqual(actual, expected)
+
+    def test_size2(self):
+        actual = self.rangoli_fn(2)
+        expected = textwrap.dedent("""\
+            --b--
+            b-a-b
+            --b--
+            """.rstrip())
+
+        self.assertEqual(actual, expected)
+
     def test_size3(self):
-        actual = self.rangoli_fn.__call__(3)
+        actual = self.rangoli_fn(3)
         expected = textwrap.dedent("""\
             ----c----
             --c-b-c--
@@ -22,7 +38,7 @@ class _TestBase(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_size5(self):
-        actual = self.rangoli_fn.__call__(5)
+        actual = self.rangoli_fn(5)
         expected = textwrap.dedent("""\
             --------e--------
             ------e-d-e------
@@ -33,6 +49,32 @@ class _TestBase(unittest.TestCase):
             ----e-d-c-d-e----
             ------e-d-e------
             --------e--------
+            """.rstrip())
+
+        self.assertEqual(actual, expected)
+
+    def test_size10(self):
+        actual = self.rangoli_fn(10)
+        expected = textwrap.dedent("""\
+            ------------------j------------------
+            ----------------j-i-j----------------
+            --------------j-i-h-i-j--------------
+            ------------j-i-h-g-h-i-j------------
+            ----------j-i-h-g-f-g-h-i-j----------
+            --------j-i-h-g-f-e-f-g-h-i-j--------
+            ------j-i-h-g-f-e-d-e-f-g-h-i-j------
+            ----j-i-h-g-f-e-d-c-d-e-f-g-h-i-j----
+            --j-i-h-g-f-e-d-c-b-c-d-e-f-g-h-i-j--
+            j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
+            --j-i-h-g-f-e-d-c-b-c-d-e-f-g-h-i-j--
+            ----j-i-h-g-f-e-d-c-d-e-f-g-h-i-j----
+            ------j-i-h-g-f-e-d-e-f-g-h-i-j------
+            --------j-i-h-g-f-e-f-g-h-i-j--------
+            ----------j-i-h-g-f-g-h-i-j----------
+            ------------j-i-h-g-h-i-j------------
+            --------------j-i-h-i-j--------------
+            ----------------j-i-j----------------
+            ------------------j------------------
             """.rstrip())
 
         self.assertEqual(actual, expected)
