@@ -111,20 +111,38 @@ def rangoli(size):
 def rangoli2(size):
     grid_size = size*2 - 1
     grid = [list('-' * grid_size) for _ in range(grid_size)]
-
+    # [
+    #     ['-', '-', '-', '-', '-'],
+    #     ['-', '-', '-', '-', '-'],
+    #     ['-', '-', '-', '-', '-'],
+    #     ['-', '-', '-', '-', '-'],
+    #     ['-', '-', '-', '-', '-'],
+    # ]
+    # into
+    # [
+    #     ['-', '-', 'c', '-', '-'],
+    #     ['-', 'c', 'b', 'c', '-'],
+    #     ['c', 'b', 'a', 'b', 'c'],
+    #     ['-', 'c', 'b', 'c', '-'],
+    #     ['-', '-', 'c', '-', '-'],
+    # ]
     for r in range(-(size-1), size):
         for c in range(-(size-1), size):
-            # -2,  0 => c+2
-            # -1, -1 => c+2
-            # -1,  0 => c+1
-            # -1,  1 => c+2
-            #  0, -2 => c+2
-            #  0, -1 => c+1
-            #  0,  0 => c+0
+            # -2,  0 => 'c' == 'a'+2
+            # -1, -1 => 'c' == 'a'+2
+            # -1,  0 => 'b' == 'a'+1
+            # -1,  1 => 'c' == 'a'+2
+            #  0, -2 => 'c' == 'a'+2
+            #  0, -1 => 'b' == 'a'+1
+            #  0,  0 => 'a' == 'a'+0
             offset = abs(r) + abs(c)  # Manhattan distance from central 'a'.
             if offset < size:
                 grid[r + size-1][c + size-1] = chr(ord('a') + offset)
 
+    # rows = []
+    # for row in grid:
+    #     rows.append('-'.join(row))
+    # return '\n'.join(rows)
     return '\n'.join('-'.join(row) for row in grid)
 
 
