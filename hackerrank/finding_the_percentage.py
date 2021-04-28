@@ -23,4 +23,4 @@ if __name__ == '__main__':
         student_marks[name] = scores
     query_name = input()
 
-    print(percentage(student_marks, query_name))
+    print('{:.2f}'.format(percentage(student_marks, query_name)))
