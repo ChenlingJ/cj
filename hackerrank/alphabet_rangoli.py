@@ -109,7 +109,7 @@ def rangoli(size):
 
 
 def rangoli2(size):
-    grid_size = size*2 - 1
+    grid_size = size * 2 - 1
     grid = [list('-' * grid_size) for _ in range(grid_size)]
     # [
     #     ['-', '-', '-', '-', '-'],
@@ -127,8 +127,8 @@ def rangoli2(size):
     #     ['-', 'c', 'b', 'c', '-'],
     #     ['-', '-', 'c', '-', '-'],
     # ]
-    for r in range(-(size-1), size):
-        for c in range(-(size-1), size):
+    for r in range(-(size - 1), size):
+        for c in range(-(size - 1), size):
             # -2,  0 => 'c' == 'a'+2
             # -1, -1 => 'c' == 'a'+2
             # -1,  0 => 'b' == 'a'+1
@@ -138,7 +138,7 @@ def rangoli2(size):
             #  0,  0 => 'a' == 'a'+0
             offset = abs(r) + abs(c)  # Manhattan distance from central 'a'.
             if offset < size:
-                grid[r + size-1][c + size-1] = chr(ord('a') + offset)
+                grid[r + size - 1][c + size - 1] = chr(ord('a') + offset)
 
     # rows = []
     # for row in grid:

@@ -11,6 +11,7 @@
 # Initialize your list and read in the value of n followed by n lines of commands where each command will be of the 7
 # types listed above. Iterate through each command in order and perform the corresponding operation on your list.
 
+
 def read_lines(n: int) -> list[str]:
     """
     Read and return `n` lines of input.

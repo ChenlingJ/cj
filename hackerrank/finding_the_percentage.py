@@ -2,7 +2,7 @@
 def mean(nums):
     if len(nums) == 0:
         return None
-    return sum(nums)/len(nums)
+    return sum(nums) / len(nums)
 
 
 def percentage(marks, student):

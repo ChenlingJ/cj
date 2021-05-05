@@ -82,12 +82,14 @@ class _TestBase(unittest.TestCase):
 
 class TestAlphabetRangoli(_TestBase):
     def __init__(self, *args, **kwargs):
-        super(TestAlphabetRangoli, self).__init__(alphabet_rangoli.rangoli, *args, **kwargs)
+        super(TestAlphabetRangoli, self).__init__(alphabet_rangoli.rangoli,
+                                                  *args, **kwargs)
 
 
 class TestAlphabetRangoli2(_TestBase):
     def __init__(self, *args, **kwargs):
-        super(TestAlphabetRangoli2, self).__init__(alphabet_rangoli.rangoli2, *args, **kwargs)
+        super(TestAlphabetRangoli2, self).__init__(alphabet_rangoli.rangoli2,
+                                                   *args, **kwargs)
 
 
 if __name__ == '__main__':

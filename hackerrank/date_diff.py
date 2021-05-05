@@ -1,9 +1,9 @@
 from itertools import accumulate
 
-
-MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+MONTH_NAMES = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()
 MONTH_LENGTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-MONTH_STARTS = list(accumulate([0] + MONTH_LENGTHS[:-1]))  # [0, 31, 31+28, 31+28+31, ...]
+# How many days came before the 1st of each month? [0, 31, 31+28, 31+28+31, ...]
+MONTH_STARTS = list(accumulate([0] + MONTH_LENGTHS[:-1]))
 
 
 def is_leap_year(year: int) -> bool:
@@ -40,7 +40,9 @@ def to_timestamp(date: str) -> int:
     into a `Unix epoch time <https://en.wikipedia.org/wiki/Unix_time>`.
     Unlike true epoch, supports values before 1970-01-01.
     """
-    _, day, month, year, time, timezone = date.split()  # First element is weekday so ignore it.
+
+    # First element is weekday so ignore it as it's redundant.
+    _, day, month, year, time, timezone = date.split()
 
     year, day = int(year), int(day)  # Convert to integers.
     day -= 1  # Number days starting from 0.
@@ -48,7 +50,8 @@ def to_timestamp(date: str) -> int:
     day_of_year = MONTH_STARTS[month] + day
     if month >= 2 and is_leap_year(year):
         day_of_year += 1
-    days_since_epoch = epoch_days_offset(year) + day_of_year  # The number of days to add to Jan 1 1970.
+    # Calculate the number of days to add to Jan 1 1970.
+    days_since_epoch = epoch_days_offset(year) + day_of_year
 
     timezone = int(timezone)  # Parsed as base 10.
     timezone_hour = abs(timezone) // 100

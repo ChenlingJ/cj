@@ -2,6 +2,7 @@ import textwrap, unittest
 
 from hackerrank.lists import parse_commands, run_commands
 
+
 class TestLists(unittest.TestCase):
     def test_sample_0(self):
         text_in = textwrap.dedent('''
