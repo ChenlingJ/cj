@@ -89,28 +89,28 @@ def print_rangoli(size):
 
 def rangoli(size):
     if size == 1:
-        return 'a'
+        return "a"
 
     m = 4 * size - 3
     lines = []
-    code = ord('a') - 1
+    code = ord("a") - 1
 
     for i in itertools.chain(range(size), reversed(range(size - 1))):
-        line = ''
+        line = ""
         for j in range(i + 1):
-            line += chr(code + size - j) + '-'
+            line += chr(code + size - j) + "-"
         for j in reversed(range(i)):
             line += chr(code + size - j)
             if j > 0:
-                line += '-'
-        lines.append(line.center(m, '-'))
+                line += "-"
+        lines.append(line.center(m, "-"))
 
-    return '\n'.join(lines)
+    return "\n".join(lines)
 
 
 def rangoli2(size):
     grid_size = size * 2 - 1
-    grid = [list('-' * grid_size) for _ in range(grid_size)]
+    grid = [list("-" * grid_size) for _ in range(grid_size)]
     # [
     #     ['-', '-', '-', '-', '-'],
     #     ['-', '-', '-', '-', '-'],
@@ -138,13 +138,13 @@ def rangoli2(size):
             #  0,  0 => 'a' == 'a'+0
             offset = abs(r) + abs(c)  # Manhattan distance from central 'a'.
             if offset < size:
-                grid[r + size - 1][c + size - 1] = chr(ord('a') + offset)
+                grid[r + size - 1][c + size - 1] = chr(ord("a") + offset)
 
     # rows = []
     # for row in grid:
     #     rows.append('-'.join(row))
     # return '\n'.join(rows)
-    return '\n'.join('-'.join(row) for row in grid)
+    return "\n".join("-".join(row) for row in grid)
 
 
 def main():

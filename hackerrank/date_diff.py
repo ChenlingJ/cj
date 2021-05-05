@@ -1,6 +1,6 @@
 from itertools import accumulate
 
-MONTH_NAMES = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split()
+MONTH_NAMES = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 MONTH_LENGTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 # How many days came before the 1st of each month? [0, 31, 31+28, 31+28+31, ...]
 MONTH_STARTS = list(accumulate([0] + MONTH_LENGTHS[:-1]))
@@ -59,7 +59,7 @@ def to_timestamp(date: str) -> int:
     if timezone < 0:
         timezone_hour *= -1
         timezone_minute *= -1
-    hour, minute, second = map(int, time.split(':'))
+    hour, minute, second = map(int, time.split(":"))
     hour -= timezone_hour
     minute -= timezone_minute
     seconds_since_midnight = (hour * 60 * 60) + (minute * 60) + second

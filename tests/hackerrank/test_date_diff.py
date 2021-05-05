@@ -20,7 +20,7 @@ class Tests(unittest.TestCase):
                     minute = randrange(0, 60)
                     second = randrange(0, 60)
 
-                    date_str = 'Day {d:02} {m} {y} {H:02}:{M:02}:{S:02} {tzh:+03}{tzm:02}'.format(
+                    date_str = "Day {d:02} {m} {y} {H:02}:{M:02}:{S:02} {tzh:+03}{tzm:02}".format(
                         d=day + 1,
                         m=MONTH_NAMES[month],
                         y=year,
@@ -53,5 +53,5 @@ class Tests(unittest.TestCase):
                     self.assertEqual(expected, actual)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

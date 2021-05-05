@@ -35,21 +35,21 @@ def run_commands(commands: list[tuple[str, list[int]]]) -> list[str]:
     arr = []
     output = []
     methods = {
-        'insert': arr.insert,
-        'remove': arr.remove,
-        'append': arr.append,
-        'sort': arr.sort,
-        'pop': arr.pop,
-        'reverse': arr.reverse,
+        "insert": arr.insert,
+        "remove": arr.remove,
+        "append": arr.append,
+        "sort": arr.sort,
+        "pop": arr.pop,
+        "reverse": arr.reverse,
     }
     for command, args in commands:
-        if command == 'print':  # print is not a method of arr.
+        if command == "print":  # print is not a method of arr.
             output.append(str(arr))
         else:
             methods[command](*args)
     return output
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     N = int(input())
-    print('\n'.join(run_commands(parse_commands(read_lines(N)))))
+    print("\n".join(run_commands(parse_commands(read_lines(N)))))

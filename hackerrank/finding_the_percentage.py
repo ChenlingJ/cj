@@ -14,7 +14,7 @@ def percentage(marks, student):
 # Arjun 70 98 63
 # Malika 52 56 60
 # Malika
-if __name__ == '__main__':
+if __name__ == "__main__":
     n = int(input())
     student_marks = {}
     for _ in range(n):
@@ -23,4 +23,4 @@ if __name__ == '__main__':
         student_marks[name] = scores
     query_name = input()
 
-    print('{:.2f}'.format(percentage(student_marks, query_name)))
+    print("{:.2f}".format(percentage(student_marks, query_name)))

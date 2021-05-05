@@ -17,29 +17,34 @@ class _TestBase(unittest.TestCase):
 
     def test_size2(self):
         actual = self.rangoli_fn(2)
-        expected = textwrap.dedent("""\
+        expected = textwrap.dedent(
+            """
             --b--
             b-a-b
             --b--
-            """.rstrip())
+            """
+        ).strip()
 
         self.assertEqual(actual, expected)
 
     def test_size3(self):
         actual = self.rangoli_fn(3)
-        expected = textwrap.dedent("""\
+        expected = textwrap.dedent(
+            """
             ----c----
             --c-b-c--
             c-b-a-b-c
             --c-b-c--
             ----c----
-            """.rstrip())
+            """
+        ).strip()
 
         self.assertEqual(actual, expected)
 
     def test_size5(self):
         actual = self.rangoli_fn(5)
-        expected = textwrap.dedent("""\
+        expected = textwrap.dedent(
+            """
             --------e--------
             ------e-d-e------
             ----e-d-c-d-e----
@@ -49,13 +54,15 @@ class _TestBase(unittest.TestCase):
             ----e-d-c-d-e----
             ------e-d-e------
             --------e--------
-            """.rstrip())
+            """
+        ).strip()
 
         self.assertEqual(actual, expected)
 
     def test_size10(self):
         actual = self.rangoli_fn(10)
-        expected = textwrap.dedent("""\
+        expected = textwrap.dedent(
+            """
             ------------------j------------------
             ----------------j-i-j----------------
             --------------j-i-h-i-j--------------
@@ -75,22 +82,25 @@ class _TestBase(unittest.TestCase):
             --------------j-i-h-i-j--------------
             ----------------j-i-j----------------
             ------------------j------------------
-            """.rstrip())
+            """
+        ).strip()
 
         self.assertEqual(actual, expected)
 
 
 class TestAlphabetRangoli(_TestBase):
     def __init__(self, *args, **kwargs):
-        super(TestAlphabetRangoli, self).__init__(alphabet_rangoli.rangoli,
-                                                  *args, **kwargs)
+        super(TestAlphabetRangoli, self).__init__(
+            alphabet_rangoli.rangoli, *args, **kwargs
+        )
 
 
 class TestAlphabetRangoli2(_TestBase):
     def __init__(self, *args, **kwargs):
-        super(TestAlphabetRangoli2, self).__init__(alphabet_rangoli.rangoli2,
-                                                   *args, **kwargs)
+        super(TestAlphabetRangoli2, self).__init__(
+            alphabet_rangoli.rangoli2, *args, **kwargs
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

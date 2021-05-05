@@ -5,7 +5,8 @@ from hackerrank.lists import parse_commands, run_commands
 
 class TestLists(unittest.TestCase):
     def test_sample_0(self):
-        text_in = textwrap.dedent('''
+        text_in = textwrap.dedent(
+            """
             insert 0 5
             insert 1 10
             insert 0 6
@@ -18,7 +19,8 @@ class TestLists(unittest.TestCase):
             pop
             reverse
             print
-        ''').strip()
+            """
+        ).strip()
         # 'insert 0 5'
         # command, *args = ['insert', '0', '5']
         # # command = 'insert'
@@ -27,16 +29,18 @@ class TestLists(unittest.TestCase):
         # pair = (command, args)
         # # pair = ('insert', [0, 5])
 
-        expected = textwrap.dedent('''
+        expected = textwrap.dedent(
+            """
             [6, 5, 10]
             [1, 5, 9, 10]
             [9, 5, 1]
-        ''').strip()
+            """
+        ).strip()
 
-        actual = '\n'.join(run_commands(parse_commands(text_in.splitlines())))
+        actual = "\n".join(run_commands(parse_commands(text_in.splitlines())))
 
         self.assertEqual(expected, actual)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
