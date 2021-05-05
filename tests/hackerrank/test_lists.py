@@ -4,7 +4,7 @@ from hackerrank.lists import parse_commands, run_commands
 
 class TestLists(unittest.TestCase):
     def test_sample_0(self):
-        input = textwrap.dedent('''
+        text_in = textwrap.dedent('''
             insert 0 5
             insert 1 10
             insert 0 6
@@ -32,7 +32,7 @@ class TestLists(unittest.TestCase):
             [9, 5, 1]
         ''').strip()
 
-        actual = '\n'.join(run_commands(parse_commands(input.splitlines())))
+        actual = '\n'.join(run_commands(parse_commands(text_in.splitlines())))
 
         self.assertEqual(expected, actual)
 
