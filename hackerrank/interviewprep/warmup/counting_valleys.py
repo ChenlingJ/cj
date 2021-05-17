@@ -1,22 +1,18 @@
-from itertools import accumulate
-
-
 def countingValleys(steps, path):
-    number_path = []
+    altitude = 0
+    valley_count = 0
     for step in path:
         if step == "U":
-            number_path.append(1)
+            altitude += 1
+            if altitude == 0:
+                # If we just got to sea level by going uphill, we must have been in a valley.
+                valley_count += 1
         elif step == "D":
-            number_path.append(-1)
-    elevations = list(accumulate(number_path))  # itertools always return iterators
-    count = 0
-    for i in range(len(elevations)):
-        if (
-            elevations[i] == 0 and elevations[i - 1] == -1
-        ):  # The first elevation can never be zero.
-            count += 1
-    return count
+            altitude -= 1
+    return valley_count
 
+# input is DDUU
+# elevations: -1 -2 -1 0 (valley ends)
 
 def main():
     steps = int(input().strip())
