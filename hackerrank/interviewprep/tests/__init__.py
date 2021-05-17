@@ -6,8 +6,8 @@ def patch_io(module: object, input: str) -> list[str]:
     module.input = lambda *_: next(input_iter)
     print_list = []
 
-    def patched_print(*args, sep=' '):
-        print_list.append(sep.join(*map(str, args)))
+    def patched_print(*args, sep=" "):
+        print_list.append(sep.join(map(str, args)))
 
     module.print = patched_print
 
