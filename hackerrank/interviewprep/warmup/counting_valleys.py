@@ -11,8 +11,10 @@ def countingValleys(steps, path):
             altitude -= 1
     return valley_count
 
+
 # input is DDUU
 # elevations: -1 -2 -1 0 (valley ends)
+
 
 def main():
     steps = int(input().strip())
