@@ -1,25 +1,18 @@
-from math import inf
-
-
 def hourglassSum(arr):
-    # maximum = -63  # the lowest possible number
-    # maximum = -float('inf')
-    maximum = -inf
-    for i in range(1, 5):
-        for j in range(1, 5):
-            hourglass_points = [
-                (-1, -1),
-                (-1, 0),
-                (-1, 1),
-                (0, 0),
-                (1, -1),
-                (1, 0),
-                (1, 1),
-            ]
-            new_sum = sum(arr[i + y][j + x] for y, x in hourglass_points)
-            if new_sum >= maximum:
-                maximum = new_sum
-    return maximum
+    hourglass_points = [
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, 0),
+        (1, -1),
+        (1, 0),
+        (1, 1),
+    ]
+    return max(
+        sum(arr[i + y][j + x] for y, x in hourglass_points)
+        for i in range(1, 5)
+        for j in range(1, 5)
+    )
 
 
 def main():
