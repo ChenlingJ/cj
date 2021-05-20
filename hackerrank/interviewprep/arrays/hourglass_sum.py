@@ -7,16 +7,20 @@ def hourglassSum(arr):
     maximum = -inf
     for i in range(1, 5):
         for j in range(1, 5):
+            hourglass_points = [
+                (-1, -1),
+                (-1, 0),
+                (-1, 1),
+                (0, 0),
+                (1, -1),
+                (1, 0),
+                (1, 1),
+            ]
+            new_sum = 0
+            for y, x in hourglass_points:
+                # += needs to have an initial value to be added to
+                new_sum += arr[i + y][j + x]
 
-            new_sum = (
-                arr[i - 1][j - 1]
-                + arr[i - 1][j + 0]
-                + arr[i - 1][j + 1]
-                + arr[i + 0][j + 0]
-                + arr[i + 1][j - 1]
-                + arr[i + 1][j + 0]
-                + arr[i + 1][j + 1]
-            )
             if new_sum >= maximum:
                 maximum = new_sum
     return maximum
