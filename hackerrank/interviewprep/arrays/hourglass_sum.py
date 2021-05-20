@@ -1,17 +1,29 @@
+# Constant value does not change between invocations of hourglassSum
+# Constants are usually defined on a module level and written in all capital letters with
+# underscores separating words. Examples include MAX_OVERFLOW and TOTAL.
+
+# The 2D shape of an hourglass. 1 = part of the hourglass, 0 = not in the hourglass.
+HOURGLASS = [
+    [1, 1, 1],
+    [0, 1, 0],
+    [1, 1, 1],
+]
+
+HOURGLASS_POINTS = []
+for row in range(3):
+    for col in range(3):
+        if HOURGLASS[row][col] == 1:
+            HOURGLASS_POINTS.append((row, col))
+
 def hourglassSum(arr):
-    hourglass_points = [
-        (-1, -1),
-        (-1, 0),
-        (-1, 1),
-        (0, 0),
-        (1, -1),
-        (1, 0),
-        (1, 1),
-    ]
     return max(
-        sum(arr[i + y][j + x] for y, x in hourglass_points)
-        for i in range(1, 5)
-        for j in range(1, 5)
+        sum(
+            arr[i + row][j + col] * HOURGLASS[row][col]
+            for row in range(3)
+            for col in range(3)
+        )
+        for i in range(4)
+        for j in range(4)
     )
 
 
