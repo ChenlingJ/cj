@@ -1,4 +1,5 @@
-from typing import Generator, Iterable, Optional
+from math import inf
+from typing import Generator, Iterable, Optional, Iterator
 
 
 def my_max(items: Iterable[int]) -> Optional[int]:
@@ -7,7 +8,12 @@ def my_max(items: Iterable[int]) -> Optional[int]:
     :param items: An iterable containing integers.
     :return: The maximum value from "items". If "items" is empty, returns "None".
     """
-    pass
+    maximum = None
+    # if "items" is empty, the for loop will not run.
+    for item in items:
+        if maximum is None or item > maximum:
+            maximum = item
+    return maximum
 
 
 def my_min(items: Iterable[int]) -> Optional[int]:
@@ -16,7 +22,11 @@ def my_min(items: Iterable[int]) -> Optional[int]:
     :param items: An iterable containing integers.
     :return: The minimum value from "items". If "items" is empty, returns "None".
     """
-    pass
+    minimum = None
+    for item in items:
+        if minimum is None or item < minimum:
+            minimum = item
+    return minimum
 
 
 def my_sum(items: Iterable[int]) -> int:
@@ -25,7 +35,10 @@ def my_sum(items: Iterable[int]) -> int:
     :param items: An iterable containing integers.
     :return: The sum of "items".
     """
-    pass
+    total = 0
+    for item in items:
+        total += item
+    return total
 
 
 def my_abs(value: int) -> int:
@@ -34,7 +47,9 @@ def my_abs(value: int) -> int:
     :param value: An integer.
     :return: The absolute value of "value".
     """
-    pass
+    if value >= 0:
+        return value
+    return -value
 
 
 # Please use a loop for this implementation.
@@ -95,7 +110,7 @@ def my_round(value: float, decimals: int = 0) -> float:
 
 
 # Please use a generator function for this solution (contains a "yield" expression).
-def my_range(start: int, end: int, step: int = 1) -> Generator[int]:
+def my_range(start: int, end: int, step: int = 1) -> Iterator[int]:
     """
     Returns a generator that will return integers between "start" (inclusive) and "end" (exclusive),
     counting up by "step".
@@ -105,4 +120,3 @@ def my_range(start: int, end: int, step: int = 1) -> Generator[int]:
     :return: Yields values starting with "start", counting by "step", and stopping before "end".
     """
     pass
-
