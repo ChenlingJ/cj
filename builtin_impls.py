@@ -1,5 +1,4 @@
-from math import inf
-from typing import Generator, Iterable, Optional, Iterator
+from typing import Iterable, Iterator, Optional
 
 
 def my_max(items: Iterable[int]) -> Optional[int]:
@@ -53,7 +52,7 @@ def my_abs(value: int) -> int:
 
 
 # Please use a loop for this implementation.
-def my_pow(value: int, exponent: int) -> int:
+def my_pow(value: int, exponent: int) -> Optional[int]:
     """
     Raises an integer "value" to the "exponent" power. Does not support negative powers.
     :param value: An integer value.
@@ -73,6 +72,7 @@ def my_any(values: Iterable[bool]) -> bool:
     Return "True" if any of the "values" is True.
     :param values: An iterable of booleans.
     :return: True if any value from "values" is True, otherwise False.
+             If "values" is empty, returns False.
     """
     pass
 
@@ -82,6 +82,7 @@ def my_all(values: Iterable[bool]) -> bool:
     Return "True" if all of the "values" are True.
     :param values: An iterable of booleans.
     :return: True if all values from "values" are True, otherwise False.
+             If "values" is empty, returns True.
     """
     pass
 
@@ -93,6 +94,7 @@ def my_len(items: list) -> int:
     :param items: The list to count.
     :return: The number of items in the list.
     """
+    pass
 
 
 def my_reversed(values: list) -> list:
