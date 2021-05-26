@@ -74,7 +74,10 @@ def my_any(values: Iterable[bool]) -> bool:
     :return: True if any value from "values" is True, otherwise False.
              If "values" is empty, returns False.
     """
-    pass
+    for value in values:
+        if value:
+            return True
+    return False
 
 
 def my_all(values: Iterable[bool]) -> bool:
@@ -82,9 +85,12 @@ def my_all(values: Iterable[bool]) -> bool:
     Return "True" if all of the "values" are True.
     :param values: An iterable of booleans.
     :return: True if all values from "values" are True, otherwise False.
-             If "values" is empty, returns True.
+             If "values" is empty, returns True vacuous truth.
     """
-    pass
+    for value in values:
+        if not value:
+            return False
+    return True
 
 
 # Please use a loop for this solution.
@@ -94,7 +100,10 @@ def my_len(items: list) -> int:
     :param items: The list to count.
     :return: The number of items in the list.
     """
-    pass
+    count = 0
+    for _ in items:  # _ means irrelevant in the for loop.
+        count += 1
+    return count
 
 
 def my_reversed(values: list) -> list:
@@ -103,7 +112,16 @@ def my_reversed(values: list) -> list:
     :param values: The list to reverse.
     :return: A new list with reversed contents.
     """
-    pass
+    my_reversed_list = []
+    # for i in range(len(values)):
+    #     my_reversed_list.append(values[len(values) - i - 1])
+    for i in range(len(values)):
+        my_reversed_list.append(values[-1 - i])
+    # for i in range(-1, -len(values)-1, -1):
+    #     my_reversed_list.append(values[i])
+    # for i in range(len(values), 0, -1):
+    # my_reversed_list.append(values[i - 1])
+    return my_reversed_list
 
 
 def my_round(value: float, decimals: int = 0) -> float:
@@ -113,7 +131,9 @@ def my_round(value: float, decimals: int = 0) -> float:
     :param decimals: The maximum precision of decimal places to include in the output.
     :return: A rounded floating point number.
     """
-    pass
+    magnitude = 10 ** decimals
+    # "/" always returns a float.
+    return int(value * magnitude + 0.5) / magnitude
 
 
 # Please use a generator function for this solution (contains a "yield" expression).
