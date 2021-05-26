@@ -23,5 +23,22 @@ class MaxTestCase(unittest.TestCase):
         self.assertEqual(42, builtin_impls.my_max((4, -1, 42, -100, -3, 23)))
 
 
+class PowTestCase(unittest.TestCase):
+    def test_numbers(self):
+        self.assertEqual(9, builtin_impls.my_pow(3, 2))
+
+    def test_negative(self):
+        self.assertEqual(None, builtin_impls.my_pow(3, -2))
+
+    def test_zero(self):
+        self.assertEqual(1, builtin_impls.my_pow(3, 0))
+
+    def test_one(self):
+        self.assertEqual(3, builtin_impls.my_pow(3, 1))
+
+    def test_big_value(self):
+        self.assertEqual(3 ** 4, builtin_impls.my_pow(3, 4))
+
+
 if __name__ == "__main__":
     unittest.main()

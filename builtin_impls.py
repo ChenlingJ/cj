@@ -60,7 +60,12 @@ def my_pow(value: int, exponent: int) -> int:
     :param exponent: An integer value.
     :return: "value" raised to the power of "exponent".
     """
-    pass
+    if exponent < 0:
+        return None
+    power = 1  # Define variables closest to where they are used.
+    for i in range(exponent):
+        power *= value
+    return power
 
 
 def my_any(values: Iterable[bool]) -> bool:
