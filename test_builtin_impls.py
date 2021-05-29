@@ -75,7 +75,7 @@ class RangeTestCase(unittest.TestCase):
         self.assertEqual([1], builtin_impls.my_range(1, 0, -1))
 
     def test_end_equal_to_start(self):
-        self.assertEqual(None, builtin_impls.my_range(1, 1, 1))
+        self.assertEqual([], builtin_impls.my_range(1, 1, 1))
 
 
 if __name__ == "__main__":
