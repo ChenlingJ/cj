@@ -1,3 +1,4 @@
+import math
 from typing import Iterable, Iterator, Optional
 
 
@@ -137,7 +138,7 @@ def my_round(value: float, decimals: int = 0) -> float:
 
 
 # Please use a generator function for this solution (contains a "yield" expression).
-def my_range(start: int, end: int, step: int = 1) -> Iterator[int]:
+def my_range(start: int, end: int, step: int) -> Iterator[int]:
     """
     Returns a generator that will return integers between "start" (inclusive) and "end" (exclusive),
     counting up by "step".
@@ -146,4 +147,12 @@ def my_range(start: int, end: int, step: int = 1) -> Iterator[int]:
     :param step: The amount to add each time.
     :return: Yields values starting with "start", counting by "step", and stopping before "end".
     """
-    pass
+    if start == end:
+        return None
+    value_list = []
+    while True:
+        value_list.append(start)
+        start += step
+        if start >= end:
+            break
+    return value_list
