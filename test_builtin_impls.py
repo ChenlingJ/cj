@@ -69,13 +69,13 @@ class ReversedTestCase(unittest.TestCase):
 
 class RangeTestCase(unittest.TestCase):
     def test_list(self):
-        self.assertEqual([1, 2], builtin_impls.my_range(1, 3, 1))
+        self.assertEqual([1, 2], list(builtin_impls.my_range(1, 3, 1)))
 
     def test_end_less_than_start(self):
-        self.assertEqual([1], builtin_impls.my_range(1, 0, -1))
+        self.assertEqual([1], list(builtin_impls.my_range(1, 0, -1)))
 
     def test_end_equal_to_start(self):
-        self.assertEqual([], builtin_impls.my_range(1, 1, 1))
+        self.assertEqual([], list(builtin_impls.my_range(1, 1, 1)))
 
 
 if __name__ == "__main__":
