@@ -15,6 +15,7 @@ for row in range(3):
         if HOURGLASS[row][col] == 1:
             HOURGLASS_POINTS.append((row, col))
 
+
 def hourglassSum(arr):
     return max(
         sum(

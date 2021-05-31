@@ -4,7 +4,7 @@ def repeatedString(s, n):
         if c == "a":
             count += 1
     count *= n // len(s)
-    s_last = s[:n % len(s)]
+    s_last = s[: n % len(s)]
     for c in s_last:
         if c == "a":
             count += 1
