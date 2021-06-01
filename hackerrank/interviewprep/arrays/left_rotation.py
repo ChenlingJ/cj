@@ -6,7 +6,11 @@ def rotLeft(a: list[int], d: int) -> list[int]:
     return a[d:] + a[:d]
 
 
-if __name__ == "__main__":
+def main():
     n, d = map(int, input().split())
     a = list(map(int, input().split()))
     print(*rotLeft(a, d))
+
+
+if __name__ == "__main__":
+    main()
